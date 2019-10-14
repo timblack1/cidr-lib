@@ -1,0 +1,31 @@
+{
+  "name": "cidr",
+  "version": "1.0.0",
+  "description": "cidr.js - a library to determine whether IPv4 CIDRs/subnets overlap",
+  "main": "cidr.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha test.js --require esm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timblack1/cidr.git"
+  },
+  "keywords": [
+    "cidr",
+    "IPv4",
+    "IP",
+    "address"
+  ],
+  "author": "Tim Black <tim@alwaysreformed.com> (http://alwaysreformed.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timblack1/cidr/issues"
+  },
+  "homepage": "https://github.com/timblack1/cidr#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "esm": "^3.2.25",
+    "mocha": "^6.2.1"
+  }
+}
