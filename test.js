@@ -1,6 +1,8 @@
 import { expect } from 'chai';
 import { Cidr } from './cidr.js';
 
+let cidr = new Cidr();
+
 describe('CIDRs', function() {
 
   it('should not overlap', function () {

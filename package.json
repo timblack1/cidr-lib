@@ -5,7 +5,7 @@
   "main": "cidr.js",
   "type": "module",
   "scripts": {
-    "create-docs": "npx jsdoc -d docs cidr.js README.md",
+    "update-docs": "npx jsdoc -d docs -c jsdoc.json cidr.js README.md",
     "test": "mocha test.js --require esm"
   },
   "repository": {

@@ -30,15 +30,37 @@
     
         <h2><span class="attribs"><span class="type-signature"></span></span>Cidr<span class="signature">()</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">Cidr library
+            <div class="class-description"><p>CIDR library</p>
+<p><strong>PURPOSE</strong>:  Provides methods for working with CIDRs.</p>
+<p>The key methods it provides are:</p>
+<ul>
+<li><code>doSubnetsOverlap()</code> - Pass it two subnet strings, and it tells you whether they overlap</li>
+<li><code>sortCidrByBinary()</code> - Use this as your sort function's callback and you can sort subnets by their binary representation</li>
+</ul>
+<p>Another public method some may find useful is:</p>
+<ul>
+<li><code>getBinaryRepresentation()</code> - Returns the binary representation of a CIDR string.</li>
+</ul>
+<p>A CIDR is a Classless Inter-Domain Routing address.  See https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing.</p>
+<p>In a bit more detail, a CIDR is an IP address with an optional range suffix appended after a forward slash.  The range is
+the number of digits (bits, counted from left to right) in the binary representation of the IP address to count as part of
+that CIDR's prefix. When the range suffix is present, only the prefix (and not the rest of the IP address's) digits are
+considered to be significant.  The result is the prefix represents a range of IP addresses, which is called a subnet.</p>
+<p><strong>USAGE</strong>:</p>
+<p>To use this library, import and instantiate the <code>Cidr</code> class, then call the<code>doSubnetsOverlap</code> method with two CIDRs,
+like this:</p>
+<pre class="prettyprint source lang-javascript"><code>import { Cidr } from './cidr.js';
 
-Provides methods for working with CIDRs.
+let cidr = new Cidr();
 
-A CIDR is a Classless Inter-Domain Routing address.  See https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing.
-A CIDR is an IP address with an optional range suffix appended after a forward slash.  The range is the number of digits
-(bits, counted from left to right) in the binary representation of the IP address to count as part of that CIDR's prefix.
-When the range suffix is present, only the prefix (and not the rest of the IP address's) digits are considered to be 
-significant.  The result is the prefix represents a range of IP addresses, which is called a subnet.</div>
+let overlaps = cidr.doSubnetsOverlap('11.1.1.2/21', '11.1.1.1/20');
+</code></pre>
+<p>Note:  In the future I might use a different library in the app for which I wrote this one.  A couple far more full-featured
+libraries are below:</p>
+<ul>
+<li><a href="https://github.com/whitequark/ipaddr.js">https://github.com/whitequark/ipaddr.js</a></li>
+<li><a href="https://github.com/beaugunderson/ip-address">https://github.com/beaugunderson/ip-address</a></li>
+</ul></div>
         
     
 </header>
@@ -61,7 +83,7 @@ significant.  The result is the prefix represents a range of IP addresses, which
 
 
 <div class="description">
-    Needed for running tests
+    <p>Constructor</p>
 </div>
 
 
@@ -105,7 +127,7 @@ significant.  The result is the prefix represents a range of IP addresses, which
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cidr.js.html">cidr.js</a>, <a href="cidr.js.html#line17">line 17</a>
+        <a href="cidr.js.html">cidr.js</a>, <a href="cidr.js.html#line48">line 48</a>
     </li></ul></dd>
     
 
@@ -176,10 +198,10 @@ significant.  The result is the prefix represents a range of IP addresses, which
 
 
 <div class="description">
-    Convert one subnet to the binary representation of its IP address, truncated to its
- CIDR prefix length.  If the cidr is incomplete or specifies no prefix length, 
- assume it is the left-most portion of the CIDR, and consider its binary length to
- be its prefix_length.
+    <p>Convert one subnet to the binary representation of its IP address, truncated to its
+CIDR prefix length.  If the cidr is incomplete or specifies no prefix length,
+assume it is the left-most portion of the CIDR, and consider its binary length to
+be its prefix_length.</p>
 </div>
 
 
@@ -231,7 +253,7 @@ significant.  The result is the prefix represents a range of IP addresses, which
 
             
 
-            <td class="description last">The CIDR whose binary prefix should be returned</td>
+            <td class="description last"><p>The CIDR whose binary prefix should be returned</p></td>
         </tr>
 
     
@@ -254,7 +276,7 @@ significant.  The result is the prefix represents a range of IP addresses, which
 
             
 
-            <td class="description last">The integer length of the CIDR's binary prefix</td>
+            <td class="description last"><p>The integer length of the CIDR's binary prefix</p></td>
         </tr>
 
     
@@ -295,7 +317,7 @@ significant.  The result is the prefix represents a range of IP addresses, which
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cidr.js.html">cidr.js</a>, <a href="cidr.js.html#line77">line 77</a>
+        <a href="cidr.js.html">cidr.js</a>, <a href="cidr.js.html#line95">line 95</a>
     </li></ul></dd>
     
 
@@ -324,7 +346,7 @@ significant.  The result is the prefix represents a range of IP addresses, which
 
         
 <div class="param-desc">
-    The CIDR's binary prefix
+    <p>The CIDR's binary prefix</p>
 </div>
 
 
@@ -361,7 +383,7 @@ significant.  The result is the prefix represents a range of IP addresses, which
 
 
 <div class="description">
-    Get the CIDR's classes as an array of classes
+    <p>Get the CIDR's classes as an array of classes</p>
 </div>
 
 
@@ -413,7 +435,7 @@ significant.  The result is the prefix represents a range of IP addresses, which
 
             
 
-            <td class="description last">The CIDR whose classes should be returned</td>
+            <td class="description last"><p>The CIDR whose classes should be returned</p></td>
         </tr>
 
     
@@ -454,7 +476,7 @@ significant.  The result is the prefix represents a range of IP addresses, which
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cidr.js.html">cidr.js</a>, <a href="cidr.js.html#line132">line 132</a>
+        <a href="cidr.js.html">cidr.js</a>, <a href="cidr.js.html#line150">line 150</a>
     </li></ul></dd>
     
 
@@ -483,7 +505,7 @@ significant.  The result is the prefix represents a range of IP addresses, which
 
         
 <div class="param-desc">
-    An array of the the classes in the CIDR
+    <p>An array of the the classes in the CIDR</p>
 </div>
 
 
@@ -520,8 +542,8 @@ significant.  The result is the prefix represents a range of IP addresses, which
 
 
 <div class="description">
-    Convert subnets to their IP addresses' binary representations, truncated to the
-shortest of their two CIDR prefix lengths
+    <p>Convert subnets to their IP addresses' binary representations, truncated to the
+shortest of their two CIDR prefix lengths</p>
 </div>
 
 
@@ -573,7 +595,7 @@ shortest of their two CIDR prefix lengths
 
             
 
-            <td class="description last">The first CIDR from which to get a prefix</td>
+            <td class="description last"><p>The first CIDR from which to get a prefix</p></td>
         </tr>
 
     
@@ -596,7 +618,7 @@ shortest of their two CIDR prefix lengths
 
             
 
-            <td class="description last">The second CIDR from which to get a prefix</td>
+            <td class="description last"><p>The second CIDR from which to get a prefix</p></td>
         </tr>
 
     
@@ -637,7 +659,7 @@ shortest of their two CIDR prefix lengths
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cidr.js.html">cidr.js</a>, <a href="cidr.js.html#line58">line 58</a>
+        <a href="cidr.js.html">cidr.js</a>, <a href="cidr.js.html#line76">line 76</a>
     </li></ul></dd>
     
 
@@ -666,7 +688,7 @@ shortest of their two CIDR prefix lengths
 
         
 <div class="param-desc">
-    An array containing the binary representations of the two input CIDRs, truncated to the shortest of their two prefix lengths
+    <p>An array containing the binary representations of the two input CIDRs, truncated to the shortest of their two prefix lengths</p>
 </div>
 
 
@@ -703,8 +725,8 @@ shortest of their two CIDR prefix lengths
 
 
 <div class="description">
-    Get the CIDR's prefix length as an integer. Handle incomplete cidrs by counting their binary
-length as their prefix_length.
+    <p>Get the CIDR's prefix length as an integer. Handle incomplete cidrs by counting their binary
+length as their prefix_length.</p>
 </div>
 
 
@@ -756,7 +778,7 @@ length as their prefix_length.
 
             
 
-            <td class="description last">The CIDR whose prefix length should be returned</td>
+            <td class="description last"><p>The CIDR whose prefix length should be returned</p></td>
         </tr>
 
     
@@ -797,7 +819,7 @@ length as their prefix_length.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cidr.js.html">cidr.js</a>, <a href="cidr.js.html#line122">line 122</a>
+        <a href="cidr.js.html">cidr.js</a>, <a href="cidr.js.html#line140">line 140</a>
     </li></ul></dd>
     
 
@@ -826,7 +848,7 @@ length as their prefix_length.
 
         
 <div class="param-desc">
-    The CIDR's prefix length as an integer
+    <p>The CIDR's prefix length as an integer</p>
 </div>
 
 
@@ -863,18 +885,7 @@ length as their prefix_length.
 
 
 <div class="description">
-    Determine if the new subnet overlaps the existing subnet
-
-Note:  I wrote this function and its dependencies below BEFORE finding a couple
-libraries which might have saved me time:
-
-https://github.com/whitequark/ipaddr.js
-https://github.com/beaugunderson/ip-address
-
-In the future I'd probably use a library.  But for now it's not worth adding the
-necessary build steps (CoffeeScript or Browserify) or otherwise trying out the libraries'
-APIs.  For now all that matters is that the unit tests pass.  And, the functions below
-made it easy to sort the IP addresses by their binary representations.
+    <p>Determine if the new subnet overlaps the existing subnet</p>
 </div>
 
 
@@ -926,7 +937,7 @@ made it easy to sort the IP addresses by their binary representations.
 
             
 
-            <td class="description last">The first CIDR to compare</td>
+            <td class="description last"><p>The first CIDR to compare</p></td>
         </tr>
 
     
@@ -949,7 +960,7 @@ made it easy to sort the IP addresses by their binary representations.
 
             
 
-            <td class="description last">The second CIDR to compare</td>
+            <td class="description last"><p>The second CIDR to compare</p></td>
         </tr>
 
     
@@ -990,7 +1001,7 @@ made it easy to sort the IP addresses by their binary representations.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cidr.js.html">cidr.js</a>, <a href="cidr.js.html#line39">line 39</a>
+        <a href="cidr.js.html">cidr.js</a>, <a href="cidr.js.html#line57">line 57</a>
     </li></ul></dd>
     
 
@@ -1052,7 +1063,7 @@ made it easy to sort the IP addresses by their binary representations.
 
 
 <div class="description">
-    Get the CIDR's binary representation including both its prefix and suffix
+    <p>Get the CIDR's binary representation including both its prefix and suffix</p>
 </div>
 
 
@@ -1104,7 +1115,7 @@ made it easy to sort the IP addresses by their binary representations.
 
             
 
-            <td class="description last">The CIDR whose binary representation should be returned</td>
+            <td class="description last"><p>The CIDR whose binary representation should be returned</p></td>
         </tr>
 
     
@@ -1145,7 +1156,7 @@ made it easy to sort the IP addresses by their binary representations.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cidr.js.html">cidr.js</a>, <a href="cidr.js.html#line98">line 98</a>
+        <a href="cidr.js.html">cidr.js</a>, <a href="cidr.js.html#line116">line 116</a>
     </li></ul></dd>
     
 
@@ -1174,7 +1185,7 @@ made it easy to sort the IP addresses by their binary representations.
 
         
 <div class="param-desc">
-    The CIDR's binary representation
+    <p>The CIDR's binary representation</p>
 </div>
 
 
@@ -1211,7 +1222,7 @@ made it easy to sort the IP addresses by their binary representations.
 
 
 <div class="description">
-    Sort CIDRs by their binary representation
+    <p>Sort CIDRs by their binary representation</p>
 </div>
 
 
@@ -1263,7 +1274,7 @@ made it easy to sort the IP addresses by their binary representations.
 
             
 
-            <td class="description last">The first CIDR to sort</td>
+            <td class="description last"><p>The first CIDR to sort</p></td>
         </tr>
 
     
@@ -1286,7 +1297,7 @@ made it easy to sort the IP addresses by their binary representations.
 
             
 
-            <td class="description last">The second CIDR to sort</td>
+            <td class="description last"><p>The second CIDR to sort</p></td>
         </tr>
 
     
@@ -1327,7 +1338,7 @@ made it easy to sort the IP addresses by their binary representations.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cidr.js.html">cidr.js</a>, <a href="cidr.js.html#line143">line 143</a>
+        <a href="cidr.js.html">cidr.js</a>, <a href="cidr.js.html#line161">line 161</a>
     </li></ul></dd>
     
 
@@ -1397,7 +1408,7 @@ made it easy to sort the IP addresses by their binary representations.
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Oct 14 2019 15:08:10 GMT-0700 (Pacific Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon Oct 14 2019 16:06:10 GMT-0700 (Pacific Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>
