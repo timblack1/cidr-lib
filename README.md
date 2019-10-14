@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/timblack1/cidr.svg?branch=master)](https://travis-ci.org/timblack1/cidr)
 # cidr
 cidr.js - a library to determine whether IPv4 CIDRs/subnets overlap
 
