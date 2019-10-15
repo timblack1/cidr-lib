@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/timblack1/cidr-lib.svg?branch=master)](https://travis-ci.org/timblack1/cidr-lib) [![Greenkeeper badge](https://badges.greenkeeper.io/timblack1/cidr-lib.svg)](https://greenkeeper.io/)
 # cidr-lib
-cidr-lib.js - a library to determine whether IPv4 CIDRs/subnets overlap
+cidr-lib - a library to determine whether IPv4 CIDRs/subnets overlap
 
 Docs on each method are at [https://timblack1.github.io/cidr-lib/](https://timblack1.github.io/cidr-lib/)
 
