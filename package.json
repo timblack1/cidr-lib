@@ -1,7 +1,7 @@
 {
-  "name": "cidr",
+  "name": "cidr-lib",
   "version": "0.0.0-development",
-  "description": "cidr.js - a library to determine whether IPv4 CIDRs/subnets overlap",
+  "description": "cidr.js - a library to determine whether IPv4 CIDRs/subnets overlap, and sort CIDRs by their binary representation",
   "main": "cidr.js",
   "type": "module",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/timblack1/cidr.git"
+    "url": "https://github.com/timblack1/cidr-lib.git"
   },
   "keywords": [
     "cidr",
@@ -22,10 +22,11 @@
   "author": "Tim Black <tim@alwaysreformed.com> (http://alwaysreformed.com/)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/timblack1/cidr/issues"
+    "url": "https://github.com/timblack1/cidr-lib/issues"
   },
-  "homepage": "https://github.com/timblack1/cidr#readme",
+  "homepage": "https://github.com/timblack1/cidr-lib#readme",
   "devDependencies": {
+    "@jedmao/semantic-release-npm-github-config": "^1.0.7",
     "chai": "^4.2.0",
     "esm": "^3.2.25",
     "mocha": "^6.2.1",
