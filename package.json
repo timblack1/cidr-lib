@@ -5,9 +5,10 @@
   "main": "cidr.js",
   "type": "module",
   "scripts": {
-    "update-docs": "npx jsdoc -d docs -c jsdoc.json cidr.js README.md",
-    "test": "mocha test.js --require esm",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "start": "watch 'npm test' .",
+    "test": "mocha test.js --require esm --wait=1",
+    "update-docs": "npx jsdoc -d docs -c jsdoc.json cidr.js README.md"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "chai": "^4.2.0",
     "esm": "^3.2.25",
     "mocha": "^6.2.1",
-    "semantic-release": "^15.13.24"
+    "semantic-release": "^15.13.24",
+    "watch": "^1.0.2"
   }
 }
