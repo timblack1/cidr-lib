@@ -138,14 +138,14 @@ export class Cidr {
    * @returns {number} The CIDR's prefix length as an integer
    */
   _getPrefixLength (cidr) {
-    return cidr.indexOf('/') !== -1 ? parseInt(cidr.split('/')[1]) : this._getBinaryPrefix(cidr).length;
+    return cidr.indexOf('/') !== -1 ? parseInt(cidr.split('/')[1], 10) : this._getBinaryPrefix(cidr).length;
   }
 
   /**
    * Get the CIDR's classes as an array of classes
    * 
    * @param {string} cidr The CIDR whose classes should be returned
-   * @returns {array} An array of the the classes in the CIDR
+   * @returns {array} An array of the classes in the CIDR
    */
   _getClasses (cidr) {
     return cidr.split('/')[0].split('.');
@@ -156,15 +156,28 @@ export class Cidr {
    * 
    * @param {string} a The first CIDR to sort
    * @param {string} b The second CIDR to sort
-   * @returns {boolean}
+   * @returns {number} 1 means sort a before b; 0 means they sort to the same level; -1 means sort a after b
    */
   sortCidrByBinary (a, b) {
 
-    var a_bin = this.cidrLib.getBinaryRepresentation(a.cidr);
-    var b_bin = this.cidrLib.getBinaryRepresentation(b.cidr);
+    const a_bin = this.getBinaryRepresentation(a);
+    const b_bin = this.getBinaryRepresentation(b);
 
-    // Convert binary to decimal integers, and compare by subtracting
-    return Number(a_bin) - Number(b_bin);
+    // Convert binary to decimal integers (to avoid treating them as octals), then compare as strings (to handle integers bigger than 2^53)
+    let a_string = String(parseInt(a_bin, 10));
+    let b_string = String(parseInt(b_bin, 10));
+
+    let out;
+
+    if (a > b) {
+      out = 1;
+    } else if (a === b) {
+      out = 0;
+    } else if (a < b) {
+      out = -1;
+    }
+
+    return out;
 
   }
 

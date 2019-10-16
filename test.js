@@ -3,9 +3,9 @@ import { Cidr } from './cidr.js';
 
 let cidr = new Cidr();
 
-describe('CIDRs', function() {
+describe('CIDR library', function() {
 
-  it('should not overlap', function () {
+  it('should determine whether CIDRs overlap', function () {
 
     const cidrs = [
       ['','',true],
@@ -54,6 +54,47 @@ describe('CIDRs', function() {
     
       // Test comparing them in the opposite order, too
       expect(cidr.doSubnetsOverlap(pair[1], pair[0])).to.equal(pair[2]);
+    
+    });
+  
+  });
+
+  it('should sort CIDRs by their binary representation', () => {
+
+    const cidrs = [
+      ['','',0],
+      ['0.0.0.1','0.0.0.0',1],
+      ['0.0.0.2','0.0.0.0',1],
+      ['0.0.0.2','0.0.0.1',1],
+      ['0.0.0.2','0.0.0.3',-1],
+      ['0.2.0.0','0.3.0.0',-1],
+      ['0.2.0.0','0.1.0.0',1],
+      ['0.0.2.0','0.1.0.0',-1],
+      ['10.10.0.0','10.10.1.0',-1],
+      ['10.10.0.0','192.168.24.0',-1],
+      ['192.168.24.1','192.168.24.0',1],
+      ['192.168.24.2','192.168.24.2',0]
+    ];
+  
+    cidrs.forEach(function(pair){
+    
+      if (pair[2] === 1) {
+        expect(cidr.sortCidrByBinary(pair[0], pair[1])).to.be.above(0);
+      } else if (pair[2] === 0) {
+        expect(cidr.sortCidrByBinary(pair[0], pair[1])).to.equal(0);
+      } else if (pair[2] === -1) {
+        expect(cidr.sortCidrByBinary(pair[0], pair[1])).to.be.below(0);
+      }
+    
+      // Test comparing them in the opposite order, too
+      if (pair[2] === 1) {
+        expect(cidr.sortCidrByBinary(pair[1], pair[0])).to.be.below(0);
+      } else if (pair[2] === 0) {
+        expect(cidr.sortCidrByBinary(pair[1], pair[0])).to.equal(0);
+      } else if (pair[2] === -1) {
+        expect(cidr.sortCidrByBinary(pair[1], pair[0])).to.be.above(0);
+      }
+      
     
     });
   
