@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/timblack1/cidr-lib/compare/v1.1.2...v1.1.3) (2019-10-16)
+
+
+### Bug Fixes
+
+* **cidr:** sort strings correctly ([67dcd1f](https://github.com/timblack1/cidr-lib/commit/67dcd1fdf35a3bc56a277dd42edb23517cf1845d))
+
 ## [1.1.2](https://github.com/timblack1/cidr-lib/compare/v1.1.1...v1.1.2) (2019-10-16)
 
 
