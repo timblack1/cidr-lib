@@ -63,7 +63,7 @@ describe('CIDR library', function() {
 
     const cidrs = [
       ['','',0],
-      ['0.0.0.1','0.0.0.0',1],
+      ['0.0.0.1','0.0.0.0', 1],
       ['0.0.0.2','0.0.0.0',1],
       ['0.0.0.2','0.0.0.1',1],
       ['0.0.0.2','0.0.0.3',-1],
@@ -71,7 +71,8 @@ describe('CIDR library', function() {
       ['0.2.0.0','0.1.0.0',1],
       ['0.0.2.0','0.1.0.0',-1],
       ['10.10.0.0','10.10.1.0',-1],
-      ['10.10.0.0','192.168.24.0',-1],
+      ['10.10.0.0','10.10.1.0',-1],
+      ['2.2.2.2','10.10.10.10',-1, "10 should sort later than 2, which doesn't work right in string comparisons if they aren't left-padded correctly"],
       ['192.168.24.1','192.168.24.0',1],
       ['192.168.24.2','192.168.24.2',0]
     ];
@@ -79,20 +80,20 @@ describe('CIDR library', function() {
     cidrs.forEach(function(pair){
     
       if (pair[2] === 1) {
-        expect(cidr.sortCidrByBinary(pair[0], pair[1])).to.be.above(0);
+        expect(cidr.sortCidrByBinary(pair[0], pair[1])).to.be.above, pair[3];
       } else if (pair[2] === 0) {
-        expect(cidr.sortCidrByBinary(pair[0], pair[1])).to.equal(0);
+        expect(cidr.sortCidrByBinary(pair[0], pair[1])).to.equal(0, pair[3]);
       } else if (pair[2] === -1) {
-        expect(cidr.sortCidrByBinary(pair[0], pair[1])).to.be.below(0);
+        expect(cidr.sortCidrByBinary(pair[0], pair[1])).to.be.below(0, pair[3]);
       }
     
       // Test comparing them in the opposite order, too
       if (pair[2] === 1) {
-        expect(cidr.sortCidrByBinary(pair[1], pair[0])).to.be.below(0);
+        expect(cidr.sortCidrByBinary(pair[1], pair[0])).to.be.below(0, pair[3]);
       } else if (pair[2] === 0) {
-        expect(cidr.sortCidrByBinary(pair[1], pair[0])).to.equal(0);
+        expect(cidr.sortCidrByBinary(pair[1], pair[0])).to.equal(0, pair[3]);
       } else if (pair[2] === -1) {
-        expect(cidr.sortCidrByBinary(pair[1], pair[0])).to.be.above(0);
+        expect(cidr.sortCidrByBinary(pair[1], pair[0])).to.be.above(0, pair[3]);
       }
       
     

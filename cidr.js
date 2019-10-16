@@ -163,17 +163,17 @@ export class Cidr {
     const a_bin = this.getBinaryRepresentation(a);
     const b_bin = this.getBinaryRepresentation(b);
 
-    // Convert binary to decimal integers (to avoid treating them as octals), then compare as strings (to handle integers bigger than 2^53)
+    // Compare as strings (to handle integers bigger than 2^53)
     let a_string = String(a_bin, 10);
     let b_string = String(b_bin, 10);
 
     let out;
 
-    if (a > b) {
+    if (a_string > b_string) {
       out = 1;
-    } else if (a === b) {
+    } else if (a_string === b_string) {
       out = 0;
-    } else if (a < b) {
+    } else if (a_string < b_string) {
       out = -1;
     }
 
