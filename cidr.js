@@ -58,7 +58,7 @@ export class Cidr {
 
     // Convert subnets to their IP addresses' binary representations, truncated to the
     //  shortest of their two CIDR prefix lengths
-    var prefixes_array = this._getPrefixesOfShortestEqualLength(first_cidr, second_cidr);
+    const prefixes_array = this._getPrefixesOfShortestEqualLength(first_cidr, second_cidr);
 
     // Compare the two prefixes
     return (prefixes_array[0] === prefixes_array[1]);
@@ -75,9 +75,9 @@ export class Cidr {
    */
   _getPrefixesOfShortestEqualLength (first_cidr, second_cidr) {
 
-    var shortest_prefix_length = Math.min(this._getPrefixLength(first_cidr), this._getPrefixLength(second_cidr));
-    var first_binary_prefix = this._getBinaryPrefix(first_cidr, shortest_prefix_length);
-    var second_binary_prefix = this._getBinaryPrefix(second_cidr, shortest_prefix_length);
+    const shortest_prefix_length = Math.min(this._getPrefixLength(first_cidr), this._getPrefixLength(second_cidr));
+    const first_binary_prefix = this._getBinaryPrefix(first_cidr, shortest_prefix_length);
+    const second_binary_prefix = this._getBinaryPrefix(second_cidr, shortest_prefix_length);
 
     return [first_binary_prefix, second_binary_prefix];
   }
@@ -94,7 +94,7 @@ export class Cidr {
    */
   _getBinaryPrefix (cidr, prefix_length) {
 
-    var binary_classes = this.getBinaryRepresentation(cidr);
+    const binary_classes = this.getBinaryRepresentation(cidr);
 
     // Handle incomplete cidr
     if (binary_classes.length < 32 && cidr.indexOf('/') === -1){
@@ -102,7 +102,7 @@ export class Cidr {
     }
 
     // Truncate string to prefix length
-    var binary_prefix = binary_classes.substring(0, prefix_length);
+    const binary_prefix = binary_classes.substring(0, prefix_length);
     return binary_prefix;
 
   }
@@ -119,10 +119,10 @@ export class Cidr {
     var classes = this._getClasses(cidr);
 
     // Convert classes to binary, and join the classes into one string
-    var binary_classes = classes.map(function(decimal){
-      var unpadded = Number(decimal).toString(2);
-      var pad = '00000000';
-      var padded = pad.substring(0, pad.length - unpadded.length) + unpadded;
+    const binary_classes = classes.map(function(decimal){
+      const unpadded = parseInt(decimal, 10).toString(2);
+      const pad = '00000000';
+      const padded = pad.substring(0, pad.length - unpadded.length) + unpadded;
       return padded;
     }).join('');
 
