@@ -164,8 +164,8 @@ export class Cidr {
     const b_bin = this.getBinaryRepresentation(b);
 
     // Convert binary to decimal integers (to avoid treating them as octals), then compare as strings (to handle integers bigger than 2^53)
-    let a_string = String(parseInt(a_bin, 10));
-    let b_string = String(parseInt(b_bin, 10));
+    let a_string = String(a_bin, 10);
+    let b_string = String(b_bin, 10);
 
     let out;
 
