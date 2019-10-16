@@ -7,7 +7,7 @@
   "scripts": {
     "semantic-release": "semantic-release",
     "start": "watch 'npm test' .",
-    "test": "mocha test.js --require esm --wait=1",
+    "test": "mocha test.js --require esm",
     "update-docs": "npx jsdoc -d docs -c jsdoc.json cidr.js README.md"
   },
   "repository": {
