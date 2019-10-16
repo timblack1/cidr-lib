@@ -119,14 +119,14 @@ export class Cidr {
     var classes = this._getClasses(cidr);
 
     // Convert classes to binary, and join the classes into one string
-    const binary_classes = classes.map(function(decimal){
+    const binaryClassesString = classes.map(function(decimal){
       const unpadded = parseInt(decimal, 10).toString(2);
       const pad = '00000000';
       const padded = pad.substring(0, pad.length - unpadded.length) + unpadded;
       return padded;
     }).join('');
 
-    return binary_classes;
+    return binaryClassesString;
 
   }
 
