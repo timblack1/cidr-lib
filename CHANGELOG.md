@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/timblack1/cidr-lib/compare/v1.1.3...v1.1.4) (2020-09-12)
+
+
+### Bug Fixes
+
+* **README:** trigger version bump ([b20bf9f](https://github.com/timblack1/cidr-lib/commit/b20bf9f0505efa4b445dfb651e1a6b7fce6b56f5))
+
 ## [1.1.3](https://github.com/timblack1/cidr-lib/compare/v1.1.2...v1.1.3) (2019-10-16)
 
 
