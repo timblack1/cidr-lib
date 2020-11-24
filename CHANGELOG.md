@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/timblack1/cidr-lib/compare/v1.1.4...v2.0.0) (2020-11-24)
+
+
+### Bug Fixes
+
+* **package:** update dependencies! ([9803417](https://github.com/timblack1/cidr-lib/commit/9803417b4d193ca3e4c305b4245277d2ab7eca8b))
+
+
+### BREAKING CHANGES
+
+* **package:** update dependencies
+
+This is a breaking change because it requires the developer to run the
+following command:
+
+```bash
+npm install
+```
+
+This is necessary to close a security vulnerability in semantic-release.
+
 ## [1.1.4](https://github.com/timblack1/cidr-lib/compare/v1.1.3...v1.1.4) (2020-09-12)
 
 
