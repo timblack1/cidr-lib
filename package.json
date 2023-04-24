@@ -33,6 +33,6 @@
     "mocha": "^10.1.0",
     "hosted-git-info": "^4.0.2",
     "watch": "^1.0.2",
-    "semantic-release": "^19.0.3"
+    "semantic-release": "^21.0.1"
   }
 }
