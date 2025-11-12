@@ -7,6 +7,10 @@ on:
   release:
     types: [created]
 
+permissions:
+  id-token: write # Required for OIDC against public npm registry
+  contents: read # to checkout code
+
 jobs:
   build:
     runs-on: ubuntu-latest
