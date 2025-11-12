@@ -28,12 +28,12 @@
   "homepage": "https://github.com/timblack1/cidr-lib#readme",
   "devDependencies": {
     "@jedmao/semantic-release-npm-github-config": "^1.0.9",
-    "chai": "^4.2.0",
+    "chai": "^4.5.0",
     "esm": "^3.2.25",
-    "merge": ">=2.1.1",
-    "mocha": "^10.1.0",
-    "hosted-git-info": "^4.0.2",
-    "watch": "^1.0.2",
-    "semantic-release": "^21.0.1"
+    "hosted-git-info": "^4.1.0",
+    "merge": "^2.1.1",
+    "mocha": "^10.8.2",
+    "semantic-release": "^21.1.2",
+    "watch": "^1.0.2"
   }
 }
