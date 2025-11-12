@@ -12,8 +12,6 @@ module.exports = {
         npmPublish: false,
       },
     ],
-    // This plugin will publish the package to npm using OIDC
-    ['@semantic-release/exec', { publishCmd: 'npm publish' }],
     [
       '@semantic-release/git',
       {
