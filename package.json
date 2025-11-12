@@ -1,6 +1,6 @@
 {
   "name": "cidr-lib",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "cidr-lib - a library to determine whether IPv4 CIDRs/subnets overlap, and sort CIDRs by their binary representation",
   "main": "cidr.js",
   "type": "module",
